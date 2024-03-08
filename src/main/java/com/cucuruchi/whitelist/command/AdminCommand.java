@@ -69,8 +69,8 @@ public class AdminCommand implements CommandExecutor, TabCompleter {
                     sendMessage(player, "&c올바른 명령어를 입력해주세요.");
                     break;
                 }
-                exceptPlayers.remove(args[0]);
-                config.set("except-players", exceptPlayers);
+                exceptPlayers.remove(args[1]);
+                config.set("except-players", exceptPlayers.toArray());
                 sendMessage(player, "&c" + args[1] + "님을 예외 플레이어에서 제거하였습니다.");
                 break;
             case "인원목록":

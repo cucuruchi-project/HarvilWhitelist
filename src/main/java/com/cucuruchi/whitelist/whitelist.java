@@ -14,16 +14,17 @@ import java.util.List;
 
 public final class whitelist extends JavaPlugin {
 
-    boolean whitelist;
-    private List<String> exceptPlayers = new ArrayList<>();
+    private ConfigExtension config;
+    private ConfigExtension messageConfig;
+
 
     @Override
     public void onEnable() {
-        ConfigExtension config = new ConfigExtension(this, "config.yml");
-        ConfigExtension messageConfig = new ConfigExtension(this, "message.yml");
+        config = new ConfigExtension(this, "config.yml");
+        messageConfig = new ConfigExtension(this, "message.yml");
         Message message = new Message(messageConfig);
-        whitelist = config.get().getBoolean("whitelist");
-        exceptPlayers = config.get().getStringList("exceptPlayers");
+        boolean whitelist = config.get().getBoolean("whitelist");
+        List<String> exceptPlayers = config.get().getStringList("except-players");
 
         registerCommand("점검", new AdminCommand(config, whitelist, exceptPlayers, messageConfig));
         getServer().getPluginManager().registerEvents(new OnLoginEvent(message, exceptPlayers, whitelist), this);
@@ -31,7 +32,6 @@ public final class whitelist extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
     }
 
     public void registerCommand(String command, CommandExecutor commandExecutor){

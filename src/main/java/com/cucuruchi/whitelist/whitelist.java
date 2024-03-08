@@ -3,13 +3,11 @@ package com.cucuruchi.whitelist;
 import com.cucuruchi.harvillibrary.extension.ConfigExtension;
 import com.cucuruchi.whitelist.command.AdminCommand;
 import com.cucuruchi.whitelist.listener.OnLoginEvent;
-import com.cucuruchi.whitelist.message.HelpMessage;
 import com.cucuruchi.whitelist.message.Message;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public final class whitelist extends JavaPlugin {

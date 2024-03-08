@@ -1,6 +1,5 @@
 package com.cucuruchi.whitelist.listener;
 
-import com.cucuruchi.harvillibrary.extension.ConfigExtension;
 import com.cucuruchi.whitelist.message.Message;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
